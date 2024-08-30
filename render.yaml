@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: items
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: |
+      gunicorn items.wsgi:application --bind 0.0.0.0:$PORT
+    plan: free
+    region: oregon
+
+  - type: background
+    name: django-celery
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: |
+      celery -A items worker --loglevel=info
+    schedule: "every 1 hour" # optional
+    plan: free
+    region: oregon
+
+databases:
+  - type: mongodb
+    name: mongodb-database
+    plan: free
+    region: oregon
