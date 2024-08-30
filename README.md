@@ -29,6 +29,7 @@ This project is a Django application that uses Django REST Framework (DRF) to cr
 - Django REST Framework
 - Djongo (for MongoDB integration)
 - dotenv
+- pycodestyle for checking PEP 8 guidelines
 
 ## Installation 
 ## Getting Started
