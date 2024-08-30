@@ -24,12 +24,11 @@ This project is a Django application that uses Django REST Framework (DRF) to cr
 - Testing coverage for various scenarios.
 
 ## Requirements
-
 - Python 3.10 or higher
 - Django 4.1.x
 - Django REST Framework
 - Djongo (for MongoDB integration)
-- Other dependencies specified in `requirements.txt`
+- dotenv
 
 ## Installation 
 ## Getting Started
