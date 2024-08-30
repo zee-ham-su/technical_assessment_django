@@ -8,5 +8,11 @@ class Item(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(default=timezone.now)
 
+
+    def save(self, *args, **kwargs):
+        if self.name == 'Invalid Name':
+            raise ValueError("This name is not allowed.")
+        super().save(*args, **kwargs)
+
     def __str__(self):
         return self.name

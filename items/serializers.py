@@ -8,5 +8,5 @@ class ItemSerializer(serializers.ModelSerializer):
 
 def validate(self, data):
         if Item.objects.filter(name=data.get('name')).exists():
-            raise serializers.ValidationError("Item with this name already exists.")
+            raise serializers.ValidationError({"name": "Item with this name already exists."})
         return data

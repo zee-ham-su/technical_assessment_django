@@ -21,10 +21,10 @@ class ItemViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         try:
             return super().create(request, *args, **kwargs)
-        except IntegrityError as e:
+        except IntegrityError:
             return Response({'error': 'Item with this name already exists.'}, status=status.HTTP_400_BAD_REQUEST)
-        except ValidationError as e:
-            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
     def paginate_queryset(self, queryset):
         page_number = self.request.query_params.get('page')
