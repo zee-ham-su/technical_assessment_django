@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Item
 
+
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
@@ -10,7 +11,9 @@ class ItemSerializer(serializers.ModelSerializer):
     def validate_name(self, value):
         """Ensure the name is unique and not empty."""
         if not value.strip():
-            raise serializers.ValidationError("Name cannot be empty or just whitespace.")
+            raise serializers.ValidationError(
+                "Name cannot be empty or just whitespace.")
         if Item.objects.filter(name=value).exists():
-            raise serializers.ValidationError("An item with this name already exists.")
+            raise serializers.ValidationError(
+                "An item with this name already exists.")
         return value
