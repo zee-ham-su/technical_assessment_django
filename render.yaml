@@ -10,7 +10,7 @@ services:
     plan: free
     region: oregon
 
-  - type: background
+  - type: worker
     name: django-celery
     runtime: python
     buildCommand: |
