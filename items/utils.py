@@ -6,12 +6,13 @@ def custom_exception_handler(exc, context):
     response = exception_handler(exc, context)
 
     if response is None:
-        response = {
-            'error': 'An unexpected error occurred.',
-            'detail': str(exc)
+        return Response({'detail': 'An unexpected error occurred.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    if response is not None:
+        custom_response = {
+            'errors': response.data,
+            'status_code': response.status_code
         }
-        return Response(response, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
-    response.data['error'] = response.data.get('detail') or 'An unexpected error occurred.'
-    response.data['status_code'] = response.status_code
+        response.data = custom_response
+
     return response
