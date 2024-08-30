@@ -120,10 +120,10 @@ Open your browser or API client and navigate to http://127.0.0.1:8080/api/.
   - **Items:**
   - **GET /api/items/** - List all items
   - **POST /api/items/** - Create a new item
-  - **GET /api/items/<id>/** - Retrieve an item by ID
-  - **PUT /api/items/<id>/** - Update an item by ID
-  - **PATCH /api/items/<id>/** - Partially update an item by ID
-  - **DELETE /api/items/<id>/** - Delete an item by ID
+  - **GET /api/items/id/** - Retrieve an item by ID
+  - **PUT /api/items/id/** - Update an item by ID
+  - **PATCH /api/items/id/** - Partially update an item by ID
+  - **DELETE /api/items/id/** - Delete an item by ID
 
 ## Swagger Documentation
 
