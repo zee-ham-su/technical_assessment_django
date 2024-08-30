@@ -151,7 +151,7 @@ For more details on customizing and using Swagger with Django REST Framework, re
 5. Open a pull request.
 
 # Versioning
-This project is versioned to ensure backward compatibility and easy maintenance. The current version is [version].
+This project is versioned to ensure backward compatibility and easy maintenance. The current version is [v1].
 
 ## License
 This project is licensed under the MIT License.
