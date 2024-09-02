@@ -7,8 +7,8 @@ def custom_exception_handler(exc, context):
     response = exception_handler(exc, context)
 
     if response is None:
-        return Response({'detail': 'An unexpected error occurred.'},
-                        status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({'detail': 'Item already exists.'},
+                        status=status.HTTP_400_BAD_REQUEST)
 
     if response is not None:
         custom_response = {
